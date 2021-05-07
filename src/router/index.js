@@ -27,7 +27,12 @@ const routes = [
       {
         path: '/login',
         name: 'Login',
-        component: () => import(/* webpackChunkName: "about" */ '../pages/auth/LoginPage.vue')
+        component: () => import(/* webpackChunkName: "login" */ '../pages/auth/LoginPage.vue')
+      },
+      {
+        path: '/sign-up',
+        name: 'Sign up',
+        component: () => import(/* webpackChunkName: "signup" */ '../pages/auth/SignUpPage.vue')
       }
     ]
   },
@@ -72,7 +77,7 @@ export const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   // Protect pages that require auth
-  const publicPages = ['/login', '/', '/about']
+  const publicPages = ['/login','/sign-up', '/', '/about']
   const authRequired = !publicPages.includes(to.path)
   const loggedIn = localStorage.getItem('user')
 
@@ -80,7 +85,7 @@ router.beforeEach((to, from, next) => {
     return next('/login')
   }
 
-  if(to.path == '/login' && loggedIn){
+  if((to.path == '/login' || to.path == '/sign-up') && loggedIn){
     return next('/')
   }
 

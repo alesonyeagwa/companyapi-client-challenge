@@ -11,6 +11,7 @@
 
         <div class="collapse show navbar-collapse justify-content-end" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
+            <li class="me-3">Hi {{user.username}}!</li>
             <li><a href="#" @click="logout">Sign out</a></li>
           </ul>
         </div>
@@ -35,5 +36,10 @@ export default {
       }
     }
   },
+  computed: {
+    user(){
+      return this.$store.state.auth.user
+    }
+  }
 }
 </script>

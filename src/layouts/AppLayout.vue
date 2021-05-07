@@ -4,6 +4,7 @@
         <router-link to="/">Home</router-link> |
         <router-link to="/about">About</router-link>
         <span v-if="!auth.status.loggedIn"> | <router-link to="/login">Login</router-link> </span>
+        <span v-if="!auth.status.loggedIn"> | <router-link to="/sign-up">Sign up</router-link> </span>
         <span v-if="auth.status.loggedIn"> | <router-link to="/dashboard">Dashboard</router-link> </span>
         <span v-if="auth.status.loggedIn"> | <a href="#" @click="logout">Sign out</a> </span>
       </div>

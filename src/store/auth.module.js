@@ -27,25 +27,35 @@ export const auth = {
                     }
                 }
             ).catch(function(error){
-                let message = error
-                if(error.response){
-                    if (error.response.status == 400 && error.response.data?.errors) {
-                        //validation errors
-                        message = ''
-                        $.each(error.response.data.errors, function(fieldName, errors){
-                            message = `${message}${errors[0] }`
-                        });
-                    }
-                }
                 commit('loginFailure', error);
-                dispatch('alert/error', message, { root: true })
+                dispatch('alert/error', error, { root: true })
             });
     },
     logout({ dispatch, commit }) {
       UserService.logout()
       commit('logout')
-      dispatch('alert/success', 'Signed out successfully', { root: true })
-    }
+      router.push('/login');
+      setTimeout(() => {
+        dispatch('alert/success', 'Signed out successfully', { root: true })
+        }, 1000);
+      
+    },
+    register({ dispatch, commit }, { username, password }) {
+        commit('setSigningUp', true);
+        UserService.register(username, password)
+                .then(
+                    data => {
+                        dispatch('alert/success', "Registered successfully", { root: true })
+                        setTimeout(() => {
+                            router.push('/login');
+                        }, 3000);
+                    }
+                ).catch(function(error){
+                    dispatch('alert/error', error, { root: true })
+                }).finally(() => {
+                    commit('setSigningUp', false);
+                });
+    },
   },
   mutations: {
     loginRequest(state, user) {
@@ -63,6 +73,9 @@ export const auth = {
     logout(state) {
       state.status = {};
       state.user = null;
+    },
+    setSigningUp(state, signingUp){
+        state.status = { signingUp };
     }
   }
 }
