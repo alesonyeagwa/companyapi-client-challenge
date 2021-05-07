@@ -83,7 +83,12 @@ export default {
         }
     },
     async created(){
-       this.company = await this.getCompanyById(this.$route.params.id)
+       this.getCompanyById(this.$route.params.id).then((data) => {
+            this.company = data.data
+        }).catch((error) => {
+            const { dispatch } = this.$store;
+            dispatch('alert/error', error, { root: true })
+        })
     }
 };
 </script>

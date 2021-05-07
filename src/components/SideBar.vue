@@ -14,7 +14,7 @@
                 <ul class="collapse list-unstyled" id="homeSubmenu">
                     <li><router-link to="/companies">View all</router-link></li>
                     <li><router-link to="/companies/add">Add Company</router-link></li>
-                    <li><a href="#">Search by ISIN</a></li>
+                    <li><router-link to="/companies/find-by-isin">Find by ISIN</router-link></li>
                 </ul>
             </li>
             <li>

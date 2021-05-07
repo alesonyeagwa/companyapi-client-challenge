@@ -19,7 +19,6 @@ export const CompanyService = {
     return axios.post(`/${model}`, data)
   },
   update: (id, data) => {
-      console.log(data)
     return axios.put(`/${model}/${id}`, data)
   },
   deleteOne: (id) => {
@@ -28,7 +27,7 @@ export const CompanyService = {
   deleteAll: () => {
     return axios.delete(`/${model}`)
   },
-  findByISIN: (isin) => {
-    return axios.get(`/${model}?title=${isin}`)
+  getByISIN: (isin) => {
+    return axios.get(`/${model}/isin/${isin}`)
   }
 }

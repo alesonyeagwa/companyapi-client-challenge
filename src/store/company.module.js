@@ -90,18 +90,11 @@ export const companies = {
             commit('setUpdating', false)
         })
     },
-    async getbyId ({commit}, id){
-        var company = this.state.data?.find(x => x.id == id);
-        if(company){
-            return company;
-        }else{
-            let response = await CompanyService.get(id);
-            if(response.status == 200){
-                return response.data
-            }else{
-                dispatch('alert/error', 'Failed to retrieve company details', { root: true })
-            }
-        }
+    getbyId ({commit}, id){
+        return CompanyService.get(id)
+    },
+    getbyISIN ({commit}, isin){
+        return CompanyService.getByISIN(isin)
     }
   },
   mutations: {

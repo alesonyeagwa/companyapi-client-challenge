@@ -1,3 +1,4 @@
+import vErrors from '../helpers/validationErrors'
 export const alert = {
     namespaced: true,
     state: {
@@ -21,8 +22,9 @@ export const alert = {
             state.message = message;
         },
         error(state, message) {
+            let msg = vErrors.getErrors(message);
             state.type = 'alert-danger';
-            state.message = message;
+            state.message = msg;
         },
         clear(state) {
             state.type = null;

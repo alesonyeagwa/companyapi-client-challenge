@@ -54,6 +54,11 @@ const routes = [
         path: '/companies/:id/edit',
         name: 'Edit Company',
         component: () => import(/* webpackChunkName: "about" */ '../pages/company/Edit.vue')
+      },
+      {
+        path: '/companies/find-by-isin',
+        name: 'Find Company by ISIN',
+        component: () => import(/* webpackChunkName: "about" */ '../pages/company/ViewByISIN.vue')
       }
     ]
   }
