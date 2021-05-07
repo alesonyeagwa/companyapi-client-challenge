@@ -78,7 +78,7 @@ export default {
             const { name, exchange, ticker, isin, website } = this.company;
             const { dispatch } = this.$store;
             if (name && exchange && ticker && isin) {
-                dispatch('companies/update', { name, exchange, ticker, isin, website });
+                dispatch('companies/update', this.company);
             }
         }
     },

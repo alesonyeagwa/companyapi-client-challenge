@@ -77,10 +77,10 @@ export const companies = {
             commit('setDeleting', false)
         })
     },
-    update ({ commit, dispatch }, id, payload) {
+    update ({ commit, dispatch }, company) {
         commit('setUpdating', true)
         var _this = this
-        CompanyService.update(id, payload).then(function(data) {
+        CompanyService.update(company.id, company).then(function(data) {
             dispatch('alert/success', 'Company updated successfully', { root: true })
             dispatch(FETCH_COMPANIES, {limit: 5, page: 1})
         }).catch(function(error){

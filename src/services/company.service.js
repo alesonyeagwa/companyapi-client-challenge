@@ -19,6 +19,7 @@ export const CompanyService = {
     return axios.post(`/${model}`, data)
   },
   update: (id, data) => {
+      console.log(data)
     return axios.put(`/${model}/${id}`, data)
   },
   deleteOne: (id) => {

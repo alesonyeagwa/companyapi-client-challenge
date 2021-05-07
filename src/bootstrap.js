@@ -7,9 +7,9 @@ const user = JSON.parse(localStorage.getItem('user'))
 
 var token = user && user.token ? user.token : null
 if (token) {
-  window.axios.defaults.headers.common = { Authorization: `Bearer ${token}` }
+  window.axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
 }
-window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'
+window.axios.defaults.headers.common['Content-Type'] = 'application/json'
 
 window.axios.interceptors.response.use(
   function (successRes) {

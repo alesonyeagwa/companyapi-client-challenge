@@ -1,7 +1,7 @@
 <template>
     <nav id="sidebar">
         <div class="sidebar-header">
-        <h3>Company API</h3>
+            <h3>Company API</h3>
         </div>
 
         <ul class="list-unstyled components">
@@ -29,10 +29,6 @@
             <li>
                 <a href="#">Contact</a>
             </li>
-            </ul>
-
-            <ul class="list-unstyled CTAs">
-            <li><a href="https://bootstrapious.com/p/bootstrap-sidebar" class="article">Back to the article</a></li>
         </ul>
     </nav>
 </template>
