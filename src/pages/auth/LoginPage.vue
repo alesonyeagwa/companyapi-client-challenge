@@ -59,6 +59,9 @@ export default {
                 dispatch('auth/login', { username, password });
             }
         }
+    },
+    created(){
+      localStorage.removeItem('loggingOut')
     }
 };
 </script>

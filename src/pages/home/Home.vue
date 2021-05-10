@@ -1,7 +1,10 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="home text-center">
+    <div class="mt-5">
+      <img alt="Vue logo" src="../../assets/logo.png">
+      <h2>Welcome to Company API Client</h2>
+      <h5>You can login or sign up with the links above</h5>
+    </div>
   </div>
 </template>
 

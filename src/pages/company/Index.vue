@@ -32,7 +32,7 @@
                 </tr>
             </tbody>
         </table>
-        <p>Showing {{pagination.limit}} of {{pagination.totalItems}} records</p>
+        <p>Showing {{companies.length}} of {{pagination.totalItems}} records</p>
         <nav>
             <ul class="pagination">
                 <li class="page-item"  @click="changePage(pagination.page - 1)" v-if="pagination.links.Previous"><a class="page-link" href="#">Previous</a></li>

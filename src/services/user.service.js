@@ -5,7 +5,7 @@ export const UserService = {
     return axios.post('/login', { username, password })
   },
   register: (username, password) =>{
-    return axios.post('/users', { username, password })
+    return axios.post('/register', { username, password })
   },
   logout: () => {
     localStorage.removeItem('user');

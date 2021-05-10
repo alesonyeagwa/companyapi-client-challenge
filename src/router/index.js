@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../pages/home/Home.vue'
 import AppLayout from '../layouts/AppLayout.vue'
 import DashboardLayout from '../layouts/DashboardLayout.vue'
+import authBootstrap from '../helpers/auth-bootstrap'
 
 Vue.use(VueRouter)
 
@@ -80,12 +81,15 @@ router.beforeEach((to, from, next) => {
   const publicPages = ['/login','/sign-up', '/', '/about']
   const authRequired = !publicPages.includes(to.path)
   const loggedIn = localStorage.getItem('user')
+  const loggingOut = localStorage.getItem('loggingOut')
+
+  authBootstrap.init()
 
   if (authRequired && !loggedIn) {
     return next('/login')
   }
 
-  if((to.path == '/login' || to.path == '/sign-up') && loggedIn){
+  if((to.path == '/login' || to.path == '/sign-up') && (loggedIn && !loggingOut)){
     return next('/')
   }
 

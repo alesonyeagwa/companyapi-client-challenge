@@ -3,12 +3,7 @@ window.axios = require('axios')
 window.axios.defaults.baseURL = 'https://localhost:44322/api'
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'
 
-const user = JSON.parse(localStorage.getItem('user'))
 
-var token = user && user.token ? user.token : null
-if (token) {
-  window.axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
-}
 window.axios.defaults.headers.common['Content-Type'] = 'application/json'
 
 window.axios.interceptors.response.use(

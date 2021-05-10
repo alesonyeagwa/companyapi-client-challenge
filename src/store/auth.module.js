@@ -33,11 +33,10 @@ export const auth = {
     },
     logout({ dispatch, commit }) {
       UserService.logout()
-      commit('logout')
+      localStorage.setItem('loggingOut', "1")
       router.push('/login');
-      setTimeout(() => {
+      commit('logout')
         dispatch('alert/success', 'Signed out successfully', { root: true })
-        }, 1000);
       
     },
     register({ dispatch, commit }, { username, password }) {
