@@ -15,8 +15,8 @@ npm install
 It is assumed that the backend of this application has been set up appropriately as it's URL will be this applications's API endpoint. The backend repo can be found [here](https://github.com/alesonyeagwa/companyapi-challenge.git)
 
 To set up the API endpoint, open the file at `src` > `bootstrap.js`, and update the API endpoint in following line accordingly.
-```
-window.axios.defaults.baseURL = '{Your API Endpoint}'
+```js
+window.axios.defaults.baseURL = '{Your API Endpoint}' //e.g https://localhost:44322/api
 ```
 ### Compiles and hot-reloads for development
 ```
